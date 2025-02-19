@@ -3,10 +3,10 @@ import Link from "next/link"
 
 const SocialConnections = () => {
   const socialLinks = [
-    { name: "GitHub", icon: Github, url: "https://github.com" },
-    { name: "Discord", icon: MessageSquare, url: "#" }, // Replace with your Discord invite link or username
-    { name: "Steam", icon: GamepadIcon, url: "https://steamcommunity.com" }, // Replace with your Steam profile URL
-    { name: "Spotify", icon: Music, url: "https://open.spotify.com" }, // Replace with your Spotify profile URL
+    { name: "GitHub", icon: Github, url: "https://github.com/nickje2000" },
+    { name: "Discord", icon: MessageSquare, url: "https://discord.com/users/1251998059269980271" }, // Replace with your Discord invite link or username
+    { name: "Steam", icon: GamepadIcon, url: "https://steamcommunity.com/id/nickje2000" }, // Replace with your Steam profile URL
+    { name: "Spotify", icon: Music, url: "https://open.spotify.com/user/qj0rf5vl802ceh63bdua71xxb?si=01d2eceeec794b7e" }, // Replace with your Spotify profile URL
   ]
 
   return (
