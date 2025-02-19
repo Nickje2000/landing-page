@@ -15,8 +15,9 @@ export default function Home() {
           My name is Nick, and I am an enthusiastic coder :D
           <br />I mainly code LUA, Python and C++, but sometimes I use something new like HTML!
           <br />
-          If you need to contact me, do so on Discord. Check out my GitHub for projects and Spotify for my favorite
-          tunes!
+          If you need to contact me, do so on Discord.
+          <br />
+          Check out my GitHub for projects and Spotify for my favorite music!
         </p>
         <SocialConnections />
       </div>
