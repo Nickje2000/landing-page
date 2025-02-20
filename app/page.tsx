@@ -105,7 +105,7 @@ export default function Home() {
               className="rounded-full border-4 border-glow-orange mb-4 mx-auto"
             />
             <p className="text-white text-center mb-4">
-              My amazing profile picture is Ai Hoshino from the manga/anime Oshi no ko. If you wanna know more about it press the little button down there. Also the arson button is broken, pressing it does not do shit right now ;)
+              My amazing profile picture is Ai Hoshino from the manga/anime Oshi no ko. If you wanna know more about it press the little button down there.
             </p>
             <div className="flex justify-center gap-4 mb-4">
               {createSocialButton(
