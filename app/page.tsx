@@ -7,6 +7,7 @@ import Image from "next/image"
 import SocialConnections, { createSocialButton } from "../components/social-connections"
 import ParticleBackground from "../components/particle-background"
 import FireEffect from "../components/fire-effect"
+import DiscordStatus from "../components/discord-status"
 import { ExternalLink, X, Flame } from "lucide-react"
 
 export default function Home() {
@@ -50,7 +51,7 @@ export default function Home() {
       <div className="z-10 px-6 py-10 bg-black bg-opacity-50 rounded-lg backdrop-blur-sm max-w-2xl w-full">
         <div className="flex flex-col items-center mb-6">
           <div
-            className="relative cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-125"
+            className="relative cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-125 mb-6"
             onClick={openModal}
           >
             <Image
@@ -58,12 +59,10 @@ export default function Home() {
               alt="Nickje2000's profile picture"
               width={120}
               height={120}
-              className="rounded-full border-4 border-glow-orange mb-4 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 float-animation"
+              className="rounded-full border-4 border-glow-orange w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 float-animation"
             />
           </div>
-          <h1 className="text-4xl font-bold text-center">
-            <span className="text-glow-orange pulse inline-block">Nickje2000</span>
-          </h1>
+          <DiscordStatus />
         </div>
         <p className="welcome-text text-center text-white mb-8 leading-relaxed">
           Hello, and welcome to my landing page!
@@ -105,13 +104,14 @@ export default function Home() {
               className="rounded-full border-4 border-glow-orange mb-4 mx-auto"
             />
             <p className="text-white text-center mb-4">
-              My amazing profile picture is Ai Hoshino from the manga/anime Oshi no ko. If you wanna know more about it press the little button down there.
+              My amazing profile picture is Ai Hoshino from the manga/anime Oshi no ko. If you wanna know more about it
+              press the little button down there.
             </p>
             <div className="flex justify-center gap-4 mb-4">
               {createSocialButton(
                 "More about Oshi no Ko",
                 ExternalLink,
-                "https://oshinoko.fandom.com/wiki/Oshi_no_Ko_Wiki",
+                "https://oshinoko.fandom.com/wiki/",
               )}
               <button
                 onClick={toggleArsonMode}
