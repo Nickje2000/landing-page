@@ -23,7 +23,7 @@ export const createSocialButton = (name: string, icon: React.ElementType, url: s
 const SocialConnections = () => {
   const socialLinks = [
     { name: "GitHub", icon: Github, url: "https://github.com/nickje2000" },
-    { name: "Discord", icon: MessageSquare, url: "https://discord.com/users/1251998059269980271" },
+    { name: "Discord", icon: MessageSquare, url: "https://discord.com/users/1342433460811206736" },
     { name: "Steam", icon: GamepadIcon, url: "https://steamcommunity.com/id/nickje2000" },
     {
       name: "Spotify",
