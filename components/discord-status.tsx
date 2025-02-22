@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Music2 } from "lucide-react"
+import { Music2, Gamepad, CircleUser } from "lucide-react"
 
 interface LanyardData {
   discord_status: string
@@ -18,6 +18,19 @@ interface LanyardData {
   active_on_discord_desktop: boolean
   active_on_discord_mobile: boolean
   active_on_discord_web: boolean
+  activities: Array<{
+    type: number
+    state?: string
+    name: string
+    id: string
+    details?: string
+    assets?: {
+      large_image?: string
+      large_text?: string
+      small_image?: string
+      small_text?: string
+    }
+  }>
   spotify?: {
     song: string
     artist: string
@@ -27,6 +40,7 @@ interface LanyardData {
       end: number
     }
   }
+  guild_id?: string
 }
 
 const DiscordStatus: React.FC = () => {
@@ -79,6 +93,9 @@ const DiscordStatus: React.FC = () => {
 
   const avatarUrl = `https://cdn.discordapp.com/avatars/${status.discord_user.id}/${status.discord_user.avatar}.png?size=128`
 
+  // Get the non-spotify activity if it exists
+  const currentActivity = status.activities?.find((activity) => activity.type !== 2) // Type 2 is Spotify
+
   return (
     <div className="bg-black bg-opacity-60 backdrop-blur-sm rounded-lg p-4 w-full max-w-sm border border-white/10">
       <div className="flex items-start space-x-4">
@@ -105,6 +122,37 @@ const DiscordStatus: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {currentActivity && (
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <div className="flex items-center space-x-3">
+            {currentActivity.assets?.large_image ? (
+              <Image
+                src={`https://cdn.discordapp.com/app-assets/${currentActivity.id}/${currentActivity.assets.large_image}.png`}
+                alt={currentActivity.name}
+                width={48}
+                height={48}
+                className="rounded"
+              />
+            ) : (
+              <div className="w-12 h-12 bg-white/10 rounded flex items-center justify-center">
+                <Gamepad className="w-6 h-6 text-gray-400" />
+              </div>
+            )}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center text-sm text-gray-400">
+                <Gamepad className="w-4 h-4 mr-1" /> Playing
+              </div>
+              <div className="font-medium truncate">{currentActivity.name}</div>
+              {currentActivity.details && (
+                <div className="text-sm text-gray-400 truncate">{currentActivity.details}</div>
+              )}
+              {currentActivity.state && <div className="text-sm text-gray-400 truncate">{currentActivity.state}</div>}
+            </div>
+          </div>
+        </div>
+      )}
+
       {status.spotify && (
         <div className="mt-4 pt-4 border-t border-white/10">
           <div className="flex items-center space-x-3">
@@ -122,6 +170,15 @@ const DiscordStatus: React.FC = () => {
               <div className="font-medium truncate">{status.spotify.song}</div>
               <div className="text-sm text-gray-400 truncate">by {status.spotify.artist}</div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {status.guild_id && (
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <div className="flex items-center space-x-2 text-sm text-gray-400">
+            <CircleUser className="w-4 h-4" />
+            <span>Member of Discord Server</span>
           </div>
         </div>
       )}
