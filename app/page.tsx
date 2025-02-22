@@ -111,7 +111,7 @@ export default function Home() {
               {createSocialButton(
                 "More about Oshi no Ko",
                 ExternalLink,
-                "https://oshinoko.fandom.com/wiki/",
+                "https://oshinoko.fandom.com/wiki/Oshi_no_Ko_Wiki",
               )}
               <button
                 onClick={toggleArsonMode}
@@ -132,6 +132,7 @@ export default function Home() {
           </div>
         </div>
       )}
+      <div className="absolute bottom-2 text-xs text-white opacity-50">© Nickje2000 | 2025</div>
     </main>
   )
 }

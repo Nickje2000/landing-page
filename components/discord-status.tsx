@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Music2, Gamepad, CircleUser } from "lucide-react"
+import { Music2, Gamepad, Users } from "lucide-react"
 
 interface LanyardData {
   discord_status: string
@@ -40,7 +40,9 @@ interface LanyardData {
       end: number
     }
   }
-  guild_id?: string
+  kv: {
+    [key: string]: string
+  }
 }
 
 const DiscordStatus: React.FC = () => {
@@ -123,6 +125,15 @@ const DiscordStatus: React.FC = () => {
         </div>
       </div>
 
+      {status.kv?.guild_tag && (
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <div className="flex items-center space-x-2 text-sm text-gray-400">
+            <Users className="w-4 h-4" />
+            <span>Guild Tag: {status.kv.guild_tag}</span>
+          </div>
+        </div>
+      )}
+
       {currentActivity && (
         <div className="mt-4 pt-4 border-t border-white/10">
           <div className="flex items-center space-x-3">
@@ -170,15 +181,6 @@ const DiscordStatus: React.FC = () => {
               <div className="font-medium truncate">{status.spotify.song}</div>
               <div className="text-sm text-gray-400 truncate">by {status.spotify.artist}</div>
             </div>
-          </div>
-        </div>
-      )}
-
-      {status.guild_id && (
-        <div className="mt-4 pt-4 border-t border-white/10">
-          <div className="flex items-center space-x-2 text-sm text-gray-400">
-            <CircleUser className="w-4 h-4" />
-            <span>Member of Discord Server</span>
           </div>
         </div>
       )}
