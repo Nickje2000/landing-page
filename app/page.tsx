@@ -48,7 +48,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center bg-black text-white relative overflow-hidden">
       <ParticleBackground />
       {isArsonMode && <FireEffect />}
-      <div className="z-10 px-6 py-10 bg-black bg-opacity-50 rounded-lg backdrop-blur-sm max-w-2xl w-full">
+      <div className="z-10 px-6 py-10 bg-black bg-opacity-50 rounded-lg backdrop-blur-sm max-w-2xl w-full relative">
         <div className="flex flex-col items-center mb-6">
           <div
             className="relative cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-125 mb-6"
@@ -75,6 +75,9 @@ export default function Home() {
           Check out my GitHub for projects and Spotify for my favorite music!
         </p>
         <SocialConnections />
+        <div className="absolute bottom-2 left-0 right-0 text-center text-xs text-white opacity-50 mt-6">
+          © Nickje2000 | 2025
+        </div>
       </div>
 
       {isModalOpen && (
@@ -132,7 +135,6 @@ export default function Home() {
           </div>
         </div>
       )}
-      <div className="absolute bottom-2 text-xs text-white opacity-50">© Nickje2000 | 2025</div>
     </main>
   )
 }
