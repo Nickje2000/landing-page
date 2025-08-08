@@ -51,7 +51,7 @@ const DiscordStatus: React.FC = () => {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const response = await fetch("https://api.lanyard.rest/v1/users/1342433460811206736")
+        const response = await fetch("https://api.lanyard.rest/v1/users/1403324959547461692")
         const data = await response.json()
         setStatus(data.data)
       } catch (error) {
